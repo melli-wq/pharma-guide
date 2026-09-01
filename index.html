@@ -1,0 +1,1117 @@
+<title>파마브로스 회사생활 가이드</title>
+<style>
+  :root {
+    --bg: #ffffff; --text: #37352f; --text-muted: #787774;
+    --border: rgba(55,53,47,0.09); --border-strong: rgba(55,53,47,0.16);
+    --accent: #2eaadc; --accent-light: #e8f5fb;
+    --hover: rgba(55,53,47,0.05); --mark: #fff3a3;
+    --section-header: #f7f6f3; --tag-bg: rgba(55,53,47,0.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #191919; --text: #e6e6e5; --text-muted: #9b9a97;
+      --border: rgba(255,255,255,0.07); --border-strong: rgba(255,255,255,0.13);
+      --accent: #5bc4ef; --accent-light: #1a3040;
+      --hover: rgba(255,255,255,0.04); --mark: #4a4200;
+      --section-header: #232323; --tag-bg: rgba(255,255,255,0.07);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #191919; --text: #e6e6e5; --text-muted: #9b9a97;
+    --border: rgba(255,255,255,0.07); --border-strong: rgba(255,255,255,0.13);
+    --accent: #5bc4ef; --accent-light: #1a3040;
+    --hover: rgba(255,255,255,0.04); --mark: #4a4200;
+    --section-header: #232323; --tag-bg: rgba(255,255,255,0.07);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif; font-size: 15px; line-height: 1.6; color: var(--text); background: var(--bg); }
+  #search-container {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    padding: 14px 24px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #search-container { background: rgba(25,25,25,0.95); } }
+  :root[data-theme="dark"] #search-container { background: rgba(25,25,25,0.95); }
+  #search-input {
+    flex: 1; padding: 8px 14px; border: 1.5px solid var(--border-strong);
+    border-radius: 8px; background: var(--bg); color: var(--text);
+    font-size: 15px; outline: none; transition: border-color 0.15s;
+  }
+  #search-input:focus { border-color: var(--accent); }
+  #search-input::placeholder { color: var(--text-muted); }
+  #search-count { font-size: 13px; color: var(--text-muted); white-space: nowrap; min-width: 70px; text-align: right; }
+  .main-content { max-width: 900px; margin: 0 auto; padding: 32px 24px 80px; }
+  .page-header { margin-bottom: 32px; }
+  .page-header h1 { font-size: 2.2rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+  .page-header p { color: var(--text-muted); font-size: 14px; }
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-muted); padding: 8px 12px; background: var(--section-header);
+    border-radius: 6px 6px 0 0; border: 1px solid var(--border); border-bottom: none;
+  }
+  .section-body { border: 1px solid var(--border); border-radius: 0 0 6px 6px; overflow: hidden; }
+  .entry { border-bottom: 1px solid var(--border); }
+  .entry:last-child { border-bottom: none; }
+  .entry-summary { display: flex; align-items: center; gap: 12px; padding: 11px 16px; cursor: pointer; user-select: none; transition: background 0.1s; list-style: none; }
+  .entry-summary:hover { background: var(--hover); }
+  details > summary { list-style: none; }
+  details > summary::-webkit-details-marker { display: none; }
+  .entry-icon { font-size: 18px; flex-shrink: 0; width: 24px; text-align: center; }
+  .entry-title { flex: 1; font-size: 14.5px; font-weight: 500; color: var(--text); }
+  .entry-chevron { flex-shrink: 0; color: var(--text-muted); transition: transform 0.2s; font-size: 11px; }
+  details[open] .entry-chevron { transform: rotate(90deg); }
+  .entry-body { padding: 12px 16px 16px 52px; font-size: 14px; color: var(--text); border-top: 1px solid var(--border); background: var(--hover); line-height: 1.7; }
+  .entry-body p { margin-bottom: 8px; }
+  .entry-body p:last-child { margin-bottom: 0; }
+  .entry-body ul, .entry-body ol { padding-left: 20px; margin-bottom: 8px; }
+  .entry-body li { margin-bottom: 3px; }
+  .entry-body strong { font-weight: 600; }
+  .entry-body code { font-family: "SF Mono","Fira Mono",monospace; font-size: 12.5px; background: var(--tag-bg); padding: 1px 5px; border-radius: 3px; }
+  .entry-body h3 { font-size: 14px; font-weight: 600; margin: 12px 0 6px; }
+  .entry-body h4 { font-size: 13.5px; font-weight: 600; margin: 10px 0 4px; color: var(--text-muted); }
+  .entry-body .tip { background: var(--accent-light); border-left: 3px solid var(--accent); padding: 8px 12px; border-radius: 0 4px 4px 0; margin: 8px 0; font-size: 13.5px; }
+  mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1px; }
+  .hidden { display: none !important; }
+  .no-results { text-align: center; padding: 48px 24px; color: var(--text-muted); font-size: 15px; }
+  .no-results .icon { font-size: 40px; margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 13.5px; }
+  th { background: var(--tag-bg); font-weight: 600; padding: 6px 10px; text-align: left; border: 1px solid var(--border-strong); }
+  td { padding: 5px 10px; border: 1px solid var(--border); vertical-align: top; }
+  .updated-badge { font-size: 11px; color: var(--accent); margin-left: 6px; font-weight: 500; }
+</style>
+
+<div id="search-container">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-muted);flex-shrink:0"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+  <input id="search-input" type="text" placeholder="검색어를 입력하세요 (제목, 내용 모두 검색)" autocomplete="off" />
+  <span id="search-count"></span>
+</div>
+
+<div class="main-content">
+  <div class="page-header">
+    <h1>📚 회사생활 가이드</h1>
+    <p>파마브로스 임직원을 위한 업무 안내서 &middot; 제목과 내용 전체 검색 가능 &middot; 최종 업데이트: 2026-09-01</p>
+  </div>
+  <div id="no-results" class="no-results hidden">
+    <div class="icon">🔍</div>
+    <div>검색 결과가 없습니다</div>
+  </div>
+
+  <!-- SECTION 1: 파마브로스 시작하기 -->
+  <div class="section">
+    <div class="section-title">파마브로스 시작하기</div>
+    <div class="section-body">
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">📅</span><span class="entry-title">입사 첫날</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>첫날 체크리스트</h3>
+          <table>
+            <tr><th>순서</th><th>내용</th></tr>
+            <tr><td>1</td><td>SECOM 출입카드 등록 (제니님)</td></tr>
+            <tr><td>2</td><td>오전 10:30 자기소개 시간</td></tr>
+            <tr><td>3</td><td>계정 설정 (다우오피스, 메일, Slack, Notion, MS Office)</td></tr>
+            <tr><td>4</td><td>온보딩 로드맵 확인</td></tr>
+          </table>
+          <h3>계정 설정 도움 요청처</h3>
+          <table>
+            <tr><th>담당자</th><th>담당 항목</th></tr>
+            <tr><td><strong>멜리</strong></td><td>노트북 설정, 다우오피스, MS Office 365</td></tr>
+            <tr><td><strong>제니</strong></td><td>SECOM 출입카드, 회사 메일, Slack, Notion</td></tr>
+          </table>
+          <div class="tip">계정 설정 완료 후 각 시스템 사용법은 <strong>업무 시스템</strong> 섹션을 참고하세요.</div>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">⭐</span><span class="entry-title">온보딩 빙고</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>참여 방법</h3>
+          <ol>
+            <li>온보딩 빙고판 확인 (노션 온보딩 빙고 페이지)</li>
+            <li>각 미션 완료 후 체크</li>
+            <li>빙고 달성 시 People팀(제니님)에게 알림</li>
+            <li>보상 수령</li>
+          </ol>
+          <h3>달성 보상</h3>
+          <table>
+            <tr><th>달성</th><th>보상</th></tr>
+            <tr><td>1빙고</td><td>키보드·마우스 장비지원금 10만원 (수습 기간 내)</td></tr>
+            <tr><td>2빙고</td><td>온보딩 추천 도서</td></tr>
+            <tr><td>3빙고</td><td>PB 제품 세트</td></tr>
+          </table>
+          <div class="tip">복지포인트 한도 10만원, 최초 1회 지급 (수습 통과 후 지급 가능)</div>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">💸</span><span class="entry-title">급여 안내</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <ul>
+            <li>지급일: <strong>매월 말일</strong> (공휴일이면 전 영업일 지급)</li>
+            <li>급여명세서: 이메일로 PDF 발송</li>
+            <li>PDF 비밀번호: <strong>생년월일 6자리 (YYMMDD 형식)</strong></li>
+          </ul>
+          <div class="tip">중소기업 소득세 감면, 건강보험 피부양자 등록도 확인해보세요.</div>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">💰</span><span class="entry-title">중소기업 취업자 소득세 감면</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <p>청년 등 중소기업 취업자 근로소득세 감면 혜택 (4대보험 변동 없음)</p>
+          <ul>
+            <li>People팀이 대상 여부 확인 후 개별 안내</li>
+            <li>이전 직장 이력이 있다면 미리 알려주세요 (감면 이력 확인 필요)</li>
+            <li>연령 상한이 있으나, 기존 적용자는 계속 적용 가능</li>
+          </ul>
+          <div class="tip">별도 신청 불필요 — People팀(제니님)에서 진행합니다.</div>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🏥</span><span class="entry-title">건강보험 피부양자 등록</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <p><strong>피부양자</strong>란 근로자의 소득으로 생계를 유지하는 가족 (부모, 배우자, 자녀 등)</p>
+          <h3>등록 자격</h3>
+          <ul>
+            <li>소득 기준 이하의 직계존비속, 배우자, 형제자매</li>
+            <li>별도 건강보험료 없이 건강보험 적용 가능</li>
+          </ul>
+          <h3>등록 방법</h3>
+          <p>가족관계증명서를 준비하여 <strong>제니님께 전달</strong>하면 처리해드립니다.</p>
+        </div>
+      </details></div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 2: 근무와 휴가 -->
+  <div class="section">
+    <div class="section-title">근무와 휴가</div>
+    <div class="section-body">
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🕘</span><span class="entry-title">근무시간</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <table>
+            <tr><th>구분</th><th>시간</th></tr>
+            <tr><td>출근 가능 시간</td><td>08:00 ~ 10:00</td></tr>
+            <tr><td>퇴근 가능 시간</td><td>17:00 ~ 19:00</td></tr>
+            <tr><td>휴게시간</td><td>12:00 ~ 13:00</td></tr>
+          </table>
+          <h3>근무시간 예시 (8시간 근무)</h3>
+          <ul>
+            <li>08:30 출근 → 17:30 퇴근</li>
+            <li>09:10 출근 → 18:10 퇴근</li>
+            <li>10:00 출근 → 19:00 퇴근</li>
+          </ul>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">📱</span><span class="entry-title">근태 관리 (SECOM)</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <ul>
+            <li>출퇴근: <strong>SECOM 모바일 앱</strong>으로 태그 (스마트폰 NFC 기능 활용)</li>
+            <li>휴대폰 변경 시 → <strong>제니님께</strong> 알려주세요 (재등록 필요)</li>
+          </ul>
+          <h3>외근 시 처리</h3>
+          <p>Slack <code>#0_연차-출근방</code> 에 다음 내용 기재:</p>
+          <ul>
+            <li>외근 내용</li>
+            <li>일시 및 장소</li>
+            <li>참석자</li>
+          </ul>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🌱</span><span class="entry-title">연차 · 월차</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>부여 기준</h3>
+          <table>
+            <tr><th>근속</th><th>휴가</th></tr>
+            <tr><td>1년 미만</td><td>월차 11일 (매월 1일씩 발생)</td></tr>
+            <tr><td>1년 이상</td><td>연차 15일</td></tr>
+          </table>
+          <h3>휴가 단위</h3>
+          <table>
+            <tr><th>종류</th><th>시간</th></tr>
+            <tr><td>연차</td><td>1일</td></tr>
+            <tr><td>오전 반차</td><td>4시간</td></tr>
+            <tr><td>오후 반차</td><td>4시간</td></tr>
+            <tr><td>오전 반반차</td><td>2시간 (08:00~10:00 중 2시간)</td></tr>
+            <tr><td>오후 반반차</td><td>2시간 (17:00~19:00 중 2시간)</td></tr>
+          </table>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🎉</span><span class="entry-title">특별 휴가</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <p>아래 특별 휴가는 <strong>연차 차감 없이</strong> 별도 부여됩니다.</p>
+          <table>
+            <tr><th>종류</th><th>내용</th><th>조건</th></tr>
+            <tr><td>생일 연차</td><td>생일이 있는 주에 1일</td><td>-</td></tr>
+            <tr><td>하계 휴가</td><td>6~8월 중 최대 3일</td><td>6개월 이상 근속</td></tr>
+            <tr><td>국가건강검진 반차</td><td>건강검진 당일 반차</td><td>-</td></tr>
+          </table>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🕊️</span><span class="entry-title">경조 휴가 · 경조금</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <table>
+            <tr><th>사유</th><th>휴가</th><th>경조금</th><th>기타</th></tr>
+            <tr><td>본인 결혼</td><td>5일</td><td>50만원</td><td>청첩장 제출</td></tr>
+            <tr><td>자녀 결혼</td><td>1일</td><td>10만원</td><td>청첩장 제출</td></tr>
+            <tr><td>형제자매 결혼</td><td>1일</td><td>10만원</td><td>청첩장 제출</td></tr>
+            <tr><td>본인 출산</td><td>출산전후휴가</td><td>30만원 + 꽃바구니</td><td>-</td></tr>
+            <tr><td>배우자 출산</td><td>20일</td><td>30만원 + 꽃바구니</td><td>-</td></tr>
+            <tr><td>배우자 부모 사망</td><td>5일</td><td>100만원 + 조화</td><td>부고장 제출</td></tr>
+            <tr><td>조부모 · 외조부모 사망</td><td>3일</td><td>-</td><td>조화</td></tr>
+            <tr><td>자녀 · 배우자 사망</td><td>5일</td><td>30만원 + 조화</td><td>-</td></tr>
+            <tr><td>형제자매 사망</td><td>3일</td><td>-</td><td>조화</td></tr>
+          </table>
+          <div class="tip">
+            <strong>경조금 신청 방법:</strong> 다우오피스 → 전자결재 → 인사 → 경조금지급신청서<br>
+            <strong>경조금 지급 조건:</strong> 6개월 이상 근속자<br>
+            <strong>주의:</strong> 경조 휴가와 경조금은 각각 별도 신청 (한쪽만 신청해도 됨)
+          </div>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">💗</span><span class="entry-title">임신 · 출산 · 육아 지원</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>임신기 근로시간 단축</h3>
+          <ul>
+            <li>임신 12주 이내 또는 32주 이후: 최대 2시간 단축 가능</li>
+            <li>임금 삭감 없음 / 연차 차감 없음</li>
+          </ul>
+
+          <h3>태아 검진 시간 (유급)</h3>
+          <table>
+            <tr><th>임신 기간</th><th>허용 횟수</th></tr>
+            <tr><td>28주까지</td><td>4주에 1회</td></tr>
+            <tr><td>29~36주</td><td>2주에 1회</td></tr>
+            <tr><td>37주 이후</td><td>1주에 1회</td></tr>
+          </table>
+
+          <h3>난임치료 휴가</h3>
+          <ul>
+            <li>연간 6일 (최초 2일 유급, 2026년 11월 27일부터 최초 4일 유급 예정)</li>
+          </ul>
+
+          <h3>출산전후휴가</h3>
+          <table>
+            <tr><th>구분</th><th>기간</th></tr>
+            <tr><td>단태아</td><td>90일</td></tr>
+            <tr><td>미숙아</td><td>100일</td></tr>
+            <tr><td>다태아 (쌍둥이 등)</td><td>120일</td></tr>
+          </table>
+
+          <h3>유산·사산 휴가</h3>
+          <table>
+            <tr><th>임신 기간</th><th>휴가 일수</th></tr>
+            <tr><td>15주 이내</td><td>10일</td></tr>
+            <tr><td>16~21주</td><td>30일</td></tr>
+            <tr><td>22~27주</td><td>60일</td></tr>
+            <tr><td>28주 이상</td><td>90일</td></tr>
+          </table>
+
+          <h3>배우자 출산 휴가</h3>
+          <ul>
+            <li>20일 (유급), 출산 후 120일 이내, 최대 3회 분할 사용 가능</li>
+          </ul>
+
+          <h3>육아휴직</h3>
+          <ul>
+            <li>대상: 임신 중 여성 / 만 8세 이하(초등 2학년 이하) 자녀</li>
+            <li>기간: 기본 1년 / 최대 1년 6개월</li>
+            <li>신청: 시작 30일 전 신청</li>
+          </ul>
+          <h4>육아휴직 급여 (고용보험)</h4>
+          <table>
+            <tr><th>기간</th><th>지급률</th><th>상한액</th></tr>
+            <tr><td>1~3개월</td><td>통상임금의 100%</td><td>250만원</td></tr>
+            <tr><td>4~6개월</td><td>통상임금의 100%</td><td>200만원</td></tr>
+            <tr><td>7개월 이후</td><td>통상임금의 80%</td><td>160만원</td></tr>
+          </table>
+
+          <h3>부모 함께 육아휴직제 (생후 18개월 이내)</h3>
+          <table>
+            <tr><th>사용 개월</th><th>월 급여 상한</th></tr>
+            <tr><td>1개월</td><td>250만원</td></tr>
+            <tr><td>2개월</td><td>300만원</td></tr>
+            <tr><td>3개월</td><td>350만원</td></tr>
+            <tr><td>4개월</td><td>400만원</td></tr>
+            <tr><td>5개월</td><td>450만원</td></tr>
+            <tr><td>6개월</td><td>450만원</td></tr>
+          </table>
+
+          <h3>육아기 근로시간 단축</h3>
+          <ul>
+            <li>대상: 만 12세 이하 자녀</li>
+            <li>근무시간: 주 15~35시간</li>
+            <li>기간: 기본 1년, 최대 3년</li>
+          </ul>
+
+          <h3>가족돌봄 휴직/휴가</h3>
+          <ul>
+            <li>가족돌봄 휴직: 연 90일 (1회 30일 이상, 무급)</li>
+            <li>가족돌봄 휴가: 연 10일 (무급)</li>
+          </ul>
+
+          <h3>수유 시간</h3>
+          <ul>
+            <li>1일 2회, 1회 30분 이상 (유급)</li>
+          </ul>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">⚖️</span><span class="entry-title">법정 휴가 요약</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <table>
+            <tr><th>휴가 종류</th><th>일수</th><th>유급여부</th><th>비고</th></tr>
+            <tr><td>출산전후휴가</td><td>90~120일</td><td>유급</td><td>단태아90/미숙아100/다태아120</td></tr>
+            <tr><td>배우자 출산휴가</td><td>20일</td><td>유급</td><td>출산 후 120일 이내, 3회 분할</td></tr>
+            <tr><td>난임치료 휴가</td><td>연 6일</td><td>최초 2일 유급</td><td>2026.11.27부터 최초 4일 유급</td></tr>
+            <tr><td>유산·사산 휴가</td><td>5~90일</td><td>유급</td><td>임신기간별 상이</td></tr>
+            <tr><td>가족돌봄 휴가</td><td>연 10일</td><td>무급</td><td>-</td></tr>
+            <tr><td>생리휴가</td><td>월 1일</td><td>무급</td><td>-</td></tr>
+          </table>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">👉</span><span class="entry-title">휴가 신청 방법</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <ol>
+            <li>다우오피스 접속</li>
+            <li>근태 → 휴가 신청</li>
+            <li>휴가 종류 선택 (연차/반차/반반차/특별휴가 등)</li>
+            <li>날짜 및 시간 선택</li>
+            <li>사유 입력</li>
+            <li>결재라인 확인 후 상신</li>
+            <li>승인 완료 후 <strong>Google Calendar에 직접 등록</strong> (자동 연동 안 됨)</li>
+          </ol>
+          <div class="tip">Google Calendar 등록은 자동으로 되지 않으니 반드시 직접 등록해주세요!</div>
+        </div>
+      </details></div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3: 복리후생 -->
+  <div class="section">
+    <div class="section-title">복리후생</div>
+    <div class="section-body">
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🛍️</span><span class="entry-title">자사 PB제품 임직원 할인</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <ul>
+            <li>할인율: <strong>최대 80%</strong></li>
+            <li>수습 통과 후 이용 가능</li>
+          </ul>
+          <h3>구매 채널</h3>
+          <table>
+            <tr><th>브랜드</th><th>URL</th></tr>
+            <tr><td>친한스토어</td><td>closure.store.friendly-pharmacist.com/closure/50425</td></tr>
+            <tr><td>시오레</td><td>siore.co.kr/product/detail.html?product_no=29</td></tr>
+          </table>
+          <div class="tip">복지포인트 → 건강증진지원비 항목으로 PB제품 구매 가능 (수습 통과 후)</div>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">💉</span><span class="entry-title">건강검진</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <ul>
+            <li>제휴처: <strong>미래의료재단</strong></li>
+            <li>본인 부담: <strong>25만원</strong> (약 70만원 상당의 검진 제공)</li>
+            <li>가족 및 지인도 이용 가능 (본인 카드 결제)</li>
+            <li>결과 수령: 약 15일 소요</li>
+          </ul>
+          <h3>예약 방법</h3>
+          <ol>
+            <li>카카오톡 또는 홈페이지 검색</li>
+            <li>기업연계검진 선택</li>
+            <li>"파마브로스" 입력</li>
+          </ol>
+          <div class="tip">복지포인트 (종합검진비) 사용 가능 — 직계가족도 복지포인트 사용 가능 (수습 통과 후)</div>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🎁</span><span class="entry-title">복지포인트</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>지급 금액</h3>
+          <table>
+            <tr><th>직급</th><th>연간 금액</th><th>지급 주기</th><th>소진 기한</th></tr>
+            <tr><td>팀원</td><td>100만원</td><td>분기별 25만원</td><td>해당 분기 내</td></tr>
+            <tr><td>팀 리더</td><td>150만원</td><td>반기별 75만원</td><td>당해 연도 내</td></tr>
+            <tr><td>본부장 이상</td><td>200만원</td><td>연간</td><td>당해 연도 내</td></tr>
+          </table>
+          <h3>지급 시점</h3>
+          <ul>
+            <li>입사 3개월 후 익월 1일부터 지급</li>
+            <li>매월 첫 주 월요일 입사자는 당월 1일 지급</li>
+          </ul>
+          <h3>신청 방법</h3>
+          <p>다우오피스 → 전자결재 → 개인경비결재</p>
+          <h3>사용 가능 항목</h3>
+          <table>
+            <tr><th>항목</th><th>비고</th></tr>
+            <tr><td>체력단련비</td><td>헬스장, 수영장 등</td></tr>
+            <tr><td>의료비</td><td>본인만 해당</td></tr>
+            <tr><td>건강증진지원비</td><td>PB제품 구매 가능</td></tr>
+            <tr><td>종합검진비</td><td>직계가족도 가능</td></tr>
+            <tr><td>도서비</td><td>-</td></tr>
+            <tr><td>교육훈련비</td><td>-</td></tr>
+            <tr><td>자기계발비</td><td>-</td></tr>
+            <tr><td>업무효율지원비</td><td>전자장비 등</td></tr>
+            <tr><td>자격증 취득비</td><td>-</td></tr>
+            <tr><td>콘도비</td><td>-</td></tr>
+            <tr><td>외국어 교육비</td><td>-</td></tr>
+          </table>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🍱</span><span class="entry-title">야근 식대 · 교통비</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <table>
+            <tr><th>구분</th><th>조건</th><th>금액</th></tr>
+            <tr><td>야근 식대</td><td>19:30 이후 근무 시</td><td>최대 15,000원</td></tr>
+            <tr><td>심야 교통비</td><td>23:00 이후 퇴근 시</td><td>일 최대 6만원 / 월 최대 50만원</td></tr>
+          </table>
+          <h3>신청 방법</h3>
+          <p>개인 카드 결제 → 다우오피스 → 전자결재 → 개인경비결재</p>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🎯</span><span class="entry-title">사내 동호회</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>구성 조건</h3>
+          <table>
+            <tr><th>유형</th><th>최소 인원</th><th>지원 금액</th></tr>
+            <tr><td>일반 동호회</td><td>5명</td><td>인당 월 2만원</td></tr>
+            <tr><td>직무 자기계발</td><td>3명</td><td>인당 월 2만원</td></tr>
+          </table>
+          <h3>사용 가능 항목</h3>
+          <ul>
+            <li>대관료, 간식, 도서, 소모품</li>
+          </ul>
+          <h3>운영 의무</h3>
+          <ul>
+            <li>활동 후 활동보고서 제출 필수</li>
+            <li>신청서 / 활동계획서 / 활동보고서 → 구글 독스 링크 확인</li>
+          </ul>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🌟</span><span class="entry-title">기타 복리후생</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>안마의자</h3>
+          <p>3층 하와이-발리 사이에 위치</p>
+          <h3>간식바</h3>
+          <p>2층, 4층, 6층 운영</p>
+          <h3>커피머신</h3>
+          <table>
+            <tr><th>층</th><th>기기</th></tr>
+            <tr><td>2층 탕비실</td><td>캡슐 커피머신</td></tr>
+            <tr><td>3층</td><td>커피머신 (그라인더)</td></tr>
+            <tr><td>4층 탕비실</td><td>캡슐 커피머신</td></tr>
+            <tr><td>6층 탕비실</td><td>캡슐 커피머신</td></tr>
+          </table>
+          <div class="tip">캡슐이 떨어지면 <strong>멜리님</strong>에게 알려주세요!</div>
+          <h3>음식물 처리기</h3>
+          <p>3층 냉장고와 개수대 사이 위치</p>
+          <ul>
+            <li>음식물 쓰레기만 투입 가능</li>
+            <li>국물, 액체, 소스 금지</li>
+            <li>일반 쓰레기 금지</li>
+          </ul>
+          <h3>영양제바</h3>
+          <p>2층, 4층, 6층 운영 (오마비디유씨, 커큐민, 신제품 등)</p>
+          <div class="tip">영양제가 떨어지면 <strong>멜리님</strong>에게 알려주세요!</div>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🍴</span><span class="entry-title">랜덤런치 · 팀팀런치</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>랜덤런치</h3>
+          <ul>
+            <li>일정: 매월 둘째 주 목요일 (공지는 전주 수요일 오후)</li>
+            <li><code>#1_업무전반-대화방</code> 에 조 편성 공지</li>
+            <li><code>#1_수다방</code> 에 스레드 생성하여 소통</li>
+            <li>결제: 법인카드 사용</li>
+          </ul>
+          <h3>팀팀런치</h3>
+          <ul>
+            <li>노사협의회 공지 시 진행</li>
+            <li>결제: 법인카드 사용</li>
+          </ul>
+        </div>
+      </details></div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4: 업무 시스템 -->
+  <div class="section">
+    <div class="section-title">업무 시스템</div>
+    <div class="section-body">
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">💼</span><span class="entry-title">다우오피스</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <p>주소: <strong>pharmabros.daouoffice.com</strong></p>
+          <h3>개인경비 지급 일정</h3>
+          <table>
+            <tr><th>사용일</th><th>결재 기한</th><th>지급일</th></tr>
+            <tr><td>1일 ~ 15일</td><td>당월 20일까지 최종 결재</td><td>당월 말일</td></tr>
+            <tr><td>16일 ~ 말일</td><td>익월 5일까지 최종 결재</td><td>익월 15일</td></tr>
+          </table>
+          <h3>자금 결제 일정</h3>
+          <table>
+            <tr><th>결제일</th><th>항목</th></tr>
+            <tr><td>매주 화요일</td><td>일반 비용</td></tr>
+            <tr><td>매주 금요일</td><td>일반 비용 + 공구 정산</td></tr>
+            <tr><td>매월 15일</td><td>개인경비</td></tr>
+            <tr><td>매월 말일</td><td>제품 매입대금 + 개인경비 + 급여</td></tr>
+            <tr><td>자동이체</td><td>계약서상 결제일 기준</td></tr>
+          </table>
+          <div class="tip">오전 10시까지 최종 결재된 건만 당일 지급됩니다.</div>
+          <h3>전자결재 상신 방법</h3>
+          <ol>
+            <li>다우오피스 접속 → 전자결재</li>
+            <li>양식 선택 (개인경비결재 / 경조금지급신청서 등)</li>
+            <li>내용 입력 및 증빙 첨부</li>
+            <li>결재라인 확인 후 상신</li>
+          </ol>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">💬</span><span class="entry-title">Slack</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>주요 채널</h3>
+          <table>
+            <tr><th>채널</th><th>용도</th></tr>
+            <tr><td><code>#0_공지_안내</code></td><td>전사 공지사항</td></tr>
+            <tr><td><code>#0_연차-출근방</code></td><td>연차/외근 보고</td></tr>
+            <tr><td><code>#1_업무전반-대화방</code></td><td>전사 업무 소통</td></tr>
+            <tr><td><code>#1_수다방</code></td><td>자유 소통, 랜덤런치 스레드</td></tr>
+            <tr><td><code>#2_people-운영지원요청</code></td><td>총무/HR 요청</td></tr>
+          </table>
+          <h3>채널 접두사 규칙</h3>
+          <table>
+            <tr><th>접두사</th><th>의미</th></tr>
+            <tr><td>0_</td><td>전사 공지/근태</td></tr>
+            <tr><td>1_</td><td>전사 업무/자유</td></tr>
+            <tr><td>2_</td><td>운영지원</td></tr>
+            <tr><td>pb_</td><td>사업부</td></tr>
+            <tr><td>team_</td><td>팀</td></tr>
+            <tr><td>99_</td><td>동호회</td></tr>
+            <tr><td>pj_</td><td>프로젝트</td></tr>
+          </table>
+          <div class="tip">업무 관련 대화는 공개 채널에서, 스레드를 적극 활용해주세요.</div>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">📝</span><span class="entry-title">Notion</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>기본 구조</h3>
+          <p>Workspace → Section → Page → Block</p>
+          <h3>자주 쓰는 단축키</h3>
+          <table>
+            <tr><th>단축키</th><th>기능</th></tr>
+            <tr><td><code>Ctrl+P</code></td><td>검색</td></tr>
+            <tr><td><code>Ctrl+Shift+K</code></td><td>빠른 검색</td></tr>
+            <tr><td><code>Ctrl+B</code></td><td>굵게</td></tr>
+            <tr><td><code>Ctrl+I</code></td><td>기울임</td></tr>
+            <tr><td><code>Ctrl+U</code></td><td>밑줄</td></tr>
+            <tr><td><code>Ctrl+K</code></td><td>링크 삽입</td></tr>
+            <tr><td><code>Tab</code></td><td>들여쓰기</td></tr>
+            <tr><td><code>Shift+Tab</code></td><td>내어쓰기</td></tr>
+            <tr><td><code>Ctrl+Z</code></td><td>실행 취소</td></tr>
+            <tr><td><code>Ctrl+Shift+Z</code></td><td>다시 실행</td></tr>
+          </table>
+          <h3>/ 명령어</h3>
+          <table>
+            <tr><th>명령어</th><th>기능</th></tr>
+            <tr><td>/page</td><td>새 페이지 생성</td></tr>
+            <tr><td>/todo</td><td>체크박스</td></tr>
+            <tr><td>/table</td><td>표 삽입</td></tr>
+            <tr><td>/image</td><td>이미지 삽입</td></tr>
+            <tr><td>/file</td><td>파일 첨부</td></tr>
+            <tr><td>/callout</td><td>콜아웃 박스</td></tr>
+            <tr><td>/toggle</td><td>토글</td></tr>
+            <tr><td>/quote</td><td>인용구</td></tr>
+            <tr><td>/divider</td><td>구분선</td></tr>
+            <tr><td>/code</td><td>코드 블록</td></tr>
+          </table>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">📧</span><span class="entry-title">Google Workspace</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>Gmail 단축키</h3>
+          <table>
+            <tr><th>단축키</th><th>기능</th></tr>
+            <tr><td>R</td><td>답장</td></tr>
+            <tr><td>A</td><td>전체 답장</td></tr>
+            <tr><td>F</td><td>전달</td></tr>
+            <tr><td>E</td><td>보관</td></tr>
+            <tr><td>Shift+U</td><td>새로고침 / 읽지 않음 처리</td></tr>
+          </table>
+          <h3>Google Drive</h3>
+          <ul>
+            <li>공용 문서, 계약서, 회의자료, 업무 파일 백업 보관</li>
+            <li>반드시 <strong>회사 계정</strong>으로 사용</li>
+          </ul>
+          <h3>Google Sheets 단축키</h3>
+          <table>
+            <tr><th>단축키</th><th>기능</th></tr>
+            <tr><td><code>Ctrl+Shift+L</code></td><td>필터</td></tr>
+            <tr><td><code>Ctrl+;</code></td><td>오늘 날짜 입력</td></tr>
+            <tr><td><code>Ctrl+Shift+;</code></td><td>현재 시간 입력</td></tr>
+            <tr><td><code>Ctrl+F</code></td><td>찾기</td></tr>
+            <tr><td><code>Ctrl+H</code></td><td>찾기 및 바꾸기</td></tr>
+            <tr><td><code>Alt+I+R</code></td><td>행 삽입</td></tr>
+          </table>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">📅</span><span class="entry-title">Google Calendar</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>주요 사용 용도</h3>
+          <ul>
+            <li>개인 일정 관리</li>
+            <li>회의 일정 (참석자 초대, 안건 설명란에 자료 첨부)</li>
+            <li>휴가 일정 공유 (다우오피스 승인 후 <strong>직접 등록 필수</strong> — 자동 연동 없음)</li>
+          </ul>
+          <h3>단축키</h3>
+          <table>
+            <tr><th>단축키</th><th>기능</th></tr>
+            <tr><td>C</td><td>일정 만들기</td></tr>
+            <tr><td>T</td><td>오늘로 이동</td></tr>
+            <tr><td>R</td><td>새로고침</td></tr>
+            <tr><td>1</td><td>일 보기</td></tr>
+            <tr><td>2</td><td>주 보기</td></tr>
+            <tr><td>3</td><td>월 보기</td></tr>
+            <tr><td>Enter</td><td>상세 보기</td></tr>
+          </table>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🖥️</span><span class="entry-title">MS Office 365</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>계정 연결 방법</h3>
+          <ol>
+            <li>개인 Microsoft 계정을 People팀에 전달</li>
+            <li>초대 메일 수락</li>
+          </ol>
+          <h3>자주 묻는 질문</h3>
+          <table>
+            <tr><th>질문</th><th>답변</th></tr>
+            <tr><td>어떤 이메일로 로그인하나요?</td><td>개인 Microsoft 계정 이메일</td></tr>
+            <tr><td>초대 메일이 안 왔어요</td><td>스팸 폴더 확인 후 People팀에 문의</td></tr>
+          </table>
+        </div>
+      </details></div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 5: 사무실 이용 -->
+  <div class="section">
+    <div class="section-title">사무실 이용</div>
+    <div class="section-body">
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🗄️</span><span class="entry-title">비품 신청</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>정기 신청</h3>
+          <p>매월 <strong>5일</strong>, <strong>20일</strong> 두 차례</p>
+          <h3>비정기 신청</h3>
+          <p>Slack <code>#2_people-운영지원요청</code> 채널에 다음을 기재:</p>
+          <ul>
+            <li>필요 비품명</li>
+            <li>신청 사유</li>
+            <li>구매 링크 (있는 경우)</li>
+          </ul>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">💳</span><span class="entry-title">장비 · 명함</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>명함</h3>
+          <table>
+            <tr><th>종류</th><th>시기</th></tr>
+            <tr><td>이미지 명함 (디지털)</td><td>입사 후 즉시 DM으로 받음</td></tr>
+            <tr><td>실물 명함</td><td>수습 통과 후 제작</td></tr>
+          </table>
+          <h3>장비 지원금</h3>
+          <table>
+            <tr><th>종류</th><th>금액</th><th>시기</th></tr>
+            <tr><td>온보딩 빙고 1빙고</td><td>10만원</td><td>수습 기간 내</td></tr>
+            <tr><td>복지포인트 업무효율지원비</td><td>복지포인트 한도 내</td><td>수습 통과 후</td></tr>
+          </table>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🏢</span><span class="entry-title">회의실 이용</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>회의실 목록</h3>
+          <table>
+            <tr><th>층</th><th>회의실</th></tr>
+            <tr><td>2층</td><td>제주</td></tr>
+            <tr><td>3층</td><td>산토리니, 발리, 하와이, 라운지</td></tr>
+            <tr><td>4층</td><td>시드니</td></tr>
+            <tr><td>5층</td><td>스튜디오</td></tr>
+            <tr><td>6층</td><td>몰디브</td></tr>
+          </table>
+          <h3>예약 방법</h3>
+          <ol>
+            <li>Google Calendar 접속</li>
+            <li>다른 캘린더 + → 리소스 찾아보기</li>
+            <li>원하는 회의실 선택 후 일정에 추가</li>
+          </ol>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🖨️</span><span class="entry-title">프린터 사용</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>층별 프린터</h3>
+          <table>
+            <tr><th>층</th><th>기기</th><th>비고</th></tr>
+            <tr><td>2층</td><td>Canon GX7000</td><td>-</td></tr>
+            <tr><td>4층</td><td>FUJIFILM Apeos C2060</td><td>IP: 192.168.0.51</td></tr>
+            <tr><td>6층</td><td>Canon GX7000</td><td>-</td></tr>
+          </table>
+
+          <h3>Mac 프린터 설정 (2층/6층 Canon)</h3>
+          <ol>
+            <li>애플 메뉴 → 도움말 또는 시스템 설정</li>
+            <li>프린터 및 스캐너</li>
+            <li>+ 버튼으로 추가</li>
+          </ol>
+
+          <h3>Windows 프린터 설정 (2층/6층 Canon)</h3>
+          <ol>
+            <li>시작 → 설정 → Bluetooth 및 디바이스</li>
+            <li>프린터 또는 스캐너 → 추가</li>
+          </ol>
+
+          <h3>4층 FUJIFILM 프린터 설정</h3>
+          <p><strong>WiFi 연결:</strong> Pharmabros / PW: <code>c0ci22je64</code></p>
+          <h4>Windows</h4>
+          <ol>
+            <li>FUJIFILM 드라이버 설치</li>
+            <li>무선(이더넷) 연결 선택</li>
+            <li>IP: <code>192.168.0.51</code> 입력</li>
+          </ol>
+          <h4>Mac</h4>
+          <ol>
+            <li>FUJIFILM 드라이버 설치</li>
+            <li>시스템 설정 → 프린터 및 스캐너 → +</li>
+            <li>IP 탭 → 주소: <code>192.168.0.51</code></li>
+          </ol>
+
+          <h3>스캔 — 폴더 전송</h3>
+          <h4>최초 설정</h4>
+          <ol>
+            <li>브라우저에서 프린터 웹페이지 접속 (IP 주소 입력)</li>
+            <li>앱 → 폴더에서 전송</li>
+            <li>미등록 → 이름 입력 후 폴더 생성</li>
+          </ol>
+          <h4>스캔 방법</h4>
+          <ol>
+            <li>복합기에 원본 올리기</li>
+            <li>폴더 전송 선택</li>
+            <li>본인 폴더 선택 → 시작</li>
+          </ol>
+          <h4>파일 확인</h4>
+          <ol>
+            <li>프린터 웹페이지 → 앱 → 폴더에서 전송</li>
+            <li>본인 폴더 → 파일 다운로드</li>
+          </ol>
+
+          <h3>스캔 — FTP 방식</h3>
+          <ol>
+            <li>Simple Scanner Utility 설치</li>
+            <li><code>cmd</code>에서 <code>ipconfig</code>로 내 IP 확인</li>
+            <li>프린터 웹페이지 주소록에 내 IP 등록</li>
+            <li>유틸리티에서 Network 설정</li>
+          </ol>
+          <div class="tip">FTP 스캔이 안 된다면: <code>ipconfig</code>로 현재 IP 확인 → 주소록 수정 → 유틸리티 Network 설정도 동일 IP로 변경</div>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">📦</span><span class="entry-title">택배 · 우편 발송</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <ul>
+            <li><strong>택배:</strong> 회사 옆 편의점 이용 (네이버 지도 검색)</li>
+            <li><strong>우편:</strong> 인근 우편취급국 이용 (네이버 지도 검색)</li>
+          </ul>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🙋</span><span class="entry-title">People 운영지원 요청</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <p>Slack <code>#2_people-운영지원요청</code> 채널에 요청</p>
+          <h3>요청 유형</h3>
+          <table>
+            <tr><th>분류</th><th>항목</th></tr>
+            <tr><td>총무</td><td>비품, 시설, 공사, 계약, 외주, 계정, 상표권, 사내자산(PB제품), 오프라인 매장</td></tr>
+            <tr><td>HR</td><td>제증명, 동호회, 경조사</td></tr>
+          </table>
+          <h3>희망 기한 명시</h3>
+          <table>
+            <tr><th>긴급도</th><th>표현</th></tr>
+            <tr><td>매우 급함</td><td>오늘 내</td></tr>
+            <tr><td>보통</td><td>3일 이내</td></tr>
+            <tr><td>여유 있음</td><td>1주 이내</td></tr>
+          </table>
+          <div class="tip">위치, 문제 상황, 필요 일정, 사진 등을 구체적으로 기재하면 더 빠르게 처리됩니다.</div>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🔐</span><span class="entry-title">출입 및 보안</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>층별 출입 비밀번호</h3>
+          <table>
+            <tr><th>층</th><th>비밀번호</th></tr>
+            <tr><td>1층</td><td><code>8882#</code></td></tr>
+            <tr><td>2층</td><td><code>1225*</code></td></tr>
+            <tr><td>3층</td><td><code>2580*</code></td></tr>
+            <tr><td>4층</td><td><code>248248*</code></td></tr>
+            <tr><td>5층</td><td><code>2580*</code></td></tr>
+            <tr><td>6층</td><td><code>9317*</code></td></tr>
+          </table>
+          <h3>화장실 비밀번호</h3>
+          <table>
+            <tr><th>층/성별</th><th>비밀번호</th></tr>
+            <tr><td>5·6층 남성</td><td><code>0827*</code></td></tr>
+            <tr><td>5·6층 여성</td><td><code>2286*</code></td></tr>
+          </table>
+          <h3>경비 설정 (퇴근 시 마지막 퇴실자)</h3>
+          <ol>
+            <li>사람 모두 나갔는지 확인</li>
+            <li>자동문 잠금 확인</li>
+            <li>경비 버튼 누르기</li>
+            <li>모바일 SECOM 카드 태그</li>
+            <li>출입문 닫기</li>
+          </ol>
+          <h3>경비 해제 (출근 시 첫 입실자)</h3>
+          <ol>
+            <li>도어락 비밀번호 입력</li>
+            <li>문 열기</li>
+            <li>경비 해제 버튼 누르기</li>
+            <li>모바일 SECOM 카드 태그</li>
+          </ol>
+        </div>
+      </details></div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 6: FAQ -->
+  <div class="section">
+    <div class="section-title">자주 묻는 질문 (FAQ)</div>
+    <div class="section-body">
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">👔</span><span class="entry-title">FAQ · 근무와 휴가<span class="updated-badge">업데이트됨</span></span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>반반차는 오전+오후 동시에 쓸 수 있나요?</h3>
+          <p>네, 가능합니다. 예시: 오전 8~10시 반반차 + 오후 3~5시 반반차 사용 시 → 10시~15시 근무 (5시간). 단, 일 최소 근무시간(4시간) 이상 근무해야 합니다.</p>
+          <h3>마이너스 연차도 가능한가요?</h3>
+          <p>원칙적으로 불가합니다. 부득이한 경우 팀장/본부장 및 제니님과 먼저 공유 후 신청해주세요.</p>
+          <h3>승인된 휴가를 취소하고 싶어요</h3>
+          <p>Slack <code>#2_people-운영지원요청</code> 채널에 <strong>문서번호를 기재</strong>하여 취소 요청해주세요.</p>
+          <h3>경조 휴가와 경조금은 자동으로 같이 처리되나요?</h3>
+          <p>아닙니다. 각각 별도로 신청해야 합니다. 경조금은 6개월 이상 근속자만 수령 가능합니다.</p>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🎀</span><span class="entry-title">FAQ · 복리후생</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>복지포인트는 언제 지급되나요?</h3>
+          <table>
+            <tr><th>승인 시기</th><th>지급일</th></tr>
+            <tr><td>1~15일 승인</td><td>당월 말일</td></tr>
+            <tr><td>16~말일 승인</td><td>다음 달 15일</td></tr>
+          </table>
+          <h3>복지포인트 사용 후 절차는?</h3>
+          <p>사용 후 반드시 다우오피스에서 전자결재(개인경비결재) 상신 필수. 여러 건 동시 신청 가능 (증빙 각각 첨부).</p>
+          <h3>중소기업 소득세 감면은 어떻게 신청하나요?</h3>
+          <p>별도 신청 불필요 — People팀이 대신 진행합니다.</p>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">🖱️</span><span class="entry-title">FAQ · 업무 시스템<span class="updated-badge">업데이트됨</span></span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>다우오피스에서 승인/결재된 문서를 수정하고 싶어요</h3>
+          <p>승인 완료된 결재는 수정이 불가합니다. Slack <code>#2_people-운영지원요청</code> 채널에 <strong>문서번호와 함께</strong> 수정 요청해주세요.</p>
+          <h3>개인경비는 언제 지급되나요?</h3>
+          <table>
+            <tr><th>결재 승인 시기</th><th>지급일</th></tr>
+            <tr><td>1~15일</td><td>당월 말일</td></tr>
+            <tr><td>16~말일</td><td>다음 달 15일</td></tr>
+          </table>
+          <h3>결재가 반려됐어요</h3>
+          <p>반려 사유 확인 후 수정하여 재상신하면 됩니다.</p>
+          <h3>Notion에서 실수로 내용을 지웠어요</h3>
+          <p><code>Ctrl+Z</code>로 실행 취소하세요.</p>
+          <h3>문서 위치를 모르겠어요</h3>
+          <p>팀 담당자에게 문의하세요.</p>
+          <h3>휴가를 캘린더에 자동으로 등록해주나요?</h3>
+          <p>아닙니다. 다우오피스에서 승인 후 Google Calendar에 <strong>직접 등록</strong>해야 합니다.</p>
+          <h3>외근 처리는 어떻게 하나요?</h3>
+          <p>Google Calendar가 아닌 Slack <code>#0_연차-출근방</code>에 내용/일시/장소/참석자를 기재합니다.</p>
+        </div>
+      </details></div>
+
+      <div class="entry"><details>
+        <summary class="entry-summary"><span class="entry-icon">✨</span><span class="entry-title">FAQ · 사무실 이용</span><span class="entry-chevron">▶</span></summary>
+        <div class="entry-body">
+          <h3>에어컨이 오작동해요</h3>
+          <p>차단기를 10분간 끄고 다시 켜주세요.</p>
+          <h3>FTP 스캔이 안 돼요</h3>
+          <p><code>cmd</code>에서 <code>ipconfig</code>로 현재 IP 확인 → 프린터 주소록 수정 → 유틸리티 Network 설정도 동일 IP로 변경</p>
+          <h3>스캔 파일은 어디서 찾나요?</h3>
+          <table>
+            <tr><th>방식</th><th>위치</th></tr>
+            <tr><td>폴더 전송</td><td>프린터 웹페이지 → 내 이름 폴더</td></tr>
+            <tr><td>FTP</td><td>유틸리티 설정 시 지정한 저장 폴더</td></tr>
+          </table>
+          <h3>공구(드라이버 등)는 어디 있나요?</h3>
+          <p>6층 해나님 뒤편 책장 맨 아래 칸에 있습니다.</p>
+        </div>
+      </details></div>
+
+    </div>
+  </div>
+
+</div><!-- /main-content -->
+
+<script>
+(function() {
+  var input = document.getElementById('search-input');
+  var countEl = document.getElementById('search-count');
+  var noResults = document.getElementById('no-results');
+  var allEntries = Array.from(document.querySelectorAll('.entry'));
+  var sections = Array.from(document.querySelectorAll('.section'));
+
+  function clearHighlights(el) {
+    if (!el) return;
+    var marks = el.querySelectorAll('mark');
+    marks.forEach(function(m) {
+      var parent = m.parentNode;
+      parent.replaceChild(document.createTextNode(m.textContent), m);
+      parent.normalize();
+    });
+  }
+
+  function highlightText(el, q) {
+    if (!el || !q) return;
+    var walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
+    var nodes = [];
+    var node;
+    while ((node = walker.nextNode())) nodes.push(node);
+    nodes.forEach(function(textNode) {
+      var text = textNode.nodeValue;
+      var lower = text.toLowerCase();
+      var idx = lower.indexOf(q);
+      if (idx === -1) return;
+      var frag = document.createDocumentFragment();
+      var last = 0;
+      while (idx !== -1) {
+        frag.appendChild(document.createTextNode(text.slice(last, idx)));
+        var mark = document.createElement('mark');
+        mark.textContent = text.slice(idx, idx + q.length);
+        frag.appendChild(mark);
+        last = idx + q.length;
+        idx = lower.indexOf(q, last);
+      }
+      frag.appendChild(document.createTextNode(text.slice(last)));
+      textNode.parentNode.replaceChild(frag, textNode);
+    });
+  }
+
+  function doSearch() {
+    var q = input.value.trim().toLowerCase();
+    allEntries.forEach(function(entry) {
+      var titleEl = entry.querySelector('.entry-title');
+      var bodyEl = entry.querySelector('.entry-body');
+      clearHighlights(titleEl);
+      clearHighlights(bodyEl);
+    });
+    if (!q) {
+      allEntries.forEach(function(entry) {
+        entry.classList.remove('hidden');
+        var details = entry.querySelector('details');
+        if (details) details.open = false;
+      });
+      sections.forEach(function(s) { s.classList.remove('hidden'); });
+      noResults.classList.add('hidden');
+      countEl.textContent = '';
+      return;
+    }
+    var matched = 0;
+    allEntries.forEach(function(entry) {
+      var titleEl = entry.querySelector('.entry-title');
+      var bodyEl = entry.querySelector('.entry-body');
+      var titleText = (titleEl ? titleEl.textContent : '').toLowerCase();
+      var bodyText = (bodyEl ? bodyEl.textContent : '').toLowerCase();
+      var isMatch = titleText.includes(q) || bodyText.includes(q);
+      var details = entry.querySelector('details');
+      if (isMatch) {
+        entry.classList.remove('hidden');
+        if (details) details.open = true;
+        highlightText(titleEl, q);
+        highlightText(bodyEl, q);
+        matched++;
+      } else {
+        entry.classList.add('hidden');
+        if (details) details.open = false;
+      }
+    });
+    sections.forEach(function(section) {
+      var visible = section.querySelectorAll('.entry:not(.hidden)');
+      section.classList.toggle('hidden', visible.length === 0);
+    });
+    noResults.classList.toggle('hidden', matched > 0);
+    countEl.textContent = matched > 0 ? matched + '개 결과' : '';
+  }
+
+  input.addEventListener('input', doSearch);
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { input.value = ''; doSearch(); }
+  });
+})();
+</script>
